@@ -175,9 +175,153 @@ Hls.prototype.subtitleTracks;
  */
 Hls.prototype.subtitleTrack;
 
+// TODO check which parameters are optional for the typedefs
+
+/**
+ * @typedef {{
+ * 	 url: string,
+ *   responseType: string,
+ *   type: string,
+ *   rangeStart: (number|undefined),
+ *   rangeEnd: (number|undefined),
+ *   progressData: (boolean|undefined)
+ * }}
+ */
+Hls.Context;
+
+/**
+ * @typedef {{
+ * 	 maxRetry: number,
+ *   timeout: number,
+ *   retryDelay: number,
+ *   maxRetryDelay: number
+ * }}
+ */
+Hls.Config;
+
+/**
+ * @typedef {{
+ * 	 context: Hls.Context,
+ *   config: Hls.Config,
+ *   callbacks: {onSuccess: function(), onProgress: function(), onError: function(), onTimeout: function()},
+ * 	 load: function(Object, Object, Object),
+ *   abort: function(),
+ *   destroy: function()
+ * }}
+ */
+Hls.Loader;
+
+/**
+ * @typedef {{
+ * 	 type: string,
+ *   level: number,
+ *   loader: Hls.Loader,
+ *   autoLevel: boolean,
+ *   duration: number,
+ *   sn: (number|string),
+ *   bitrateTest: boolean,
+ *   loadCounter: number,
+ *   cc: number,
+ *   loadIdx: number,
+ *   decryptdata: ({uri: string, key: Object}|undefined),
+ *   start: number,
+ *   dropped: number,
+ *   startPTS: number,
+ *   endPTS: number,
+ *   startDTS: number,
+ *   endDTS: number,
+ *   deltaPTS: number,
+ *   backtracked: boolean,
+ *   trackId: number,
+ *   byteLength: number,
+ *   loaded: number,
+ *   byteRangeStartOffset: number,
+ *   byteRangeEndOffset: number,
+ *   lastByteRangeEndOffset: number,
+ *   rawByteRange: Array,
+ *   rawProgramDateTime: Array,
+ *   title: string,
+ *   tagList: Array,
+ *   levelkey: LevelKey,
+ *   baseurl: string,
+ *   relurl: string
+ * }}
+ */
+Hls.Fragment;
+
+/**
+ * @typedef {{
+ * 	 trequest: number,
+ *   tfirst: number,
+ *   tload: number,
+ *   loaded: number,
+ *   bw: (number|undefined),
+ *   total: (number|undefined),
+ * }}
+ */
+Hls.Stats;
+
+/**
+ * @typedef {{
+ * 	 code: number,
+ *   text: string
+ * }}
+ */
+Hls.Response;
+
+/**
+ * @typedef {{
+ *   type: (string|undefined),
+ *   details: (string|undefined),
+ *   fatal: (boolean|undefined),
+ *   url: (string|undefined),
+ *   reason: (string|undefined),
+ *   err: (Error|undefined),
+ *   mimeType: (string|undefined),
+ *   parent: (string|undefined),
+ *   content: (string|undefined),
+ *   hole: (number|undefined),
+ *   id: (string|number|undefined),
+ *   startOffset: (number|undefined),
+ *   endOffset: (number|undefined),
+ *   audioTracks: (Array|undefined),
+ *   subtitleTracks: (Array|undefined),
+ *   subtitles: (Array|undefined),
+ *   media: (Element|undefined),
+ *   pending: (number|undefined),
+ *   currentDropped: (number|undefined),
+ *   currentDecoded: (number|undefined),
+ *   totalDroppedFrames: (number|undefined),
+ *   level: (number|undefined),
+ *   droppedLevel: (number|undefined),
+ *   levels: (Array|undefined),
+ *   firstLevel: (number|undefined),
+ *   audio: (boolean|undefined),
+ *   video: (boolean|undefined),
+ *   altAudio: (boolean|undefined),
+ *   data: (?|undefined),
+ *   drift: (?|undefined),
+ *   start: (number|undefined),
+ *   end: (number|undefined),
+ *   buffer: (number|undefined),
+ *   previousState: (?|undefined),
+ *   nextState: (?|undefined),
+ *   success: (boolean|undefined),
+ *   payload: (?|undefined),
+ *   initPTS: (number|undefined),
+ *   bytes: (number|undefined),
+ *   response: (Hls.Response|undefined),
+ *   loader: (Hls.Loader|undefined),
+ *   frag: (Hls.Fragment|undefined),
+ *   context: (Hls.Context|undefined),
+ *   stats: (Hls.Stats|undefined)
+ * }}
+ */
+Hls.EventCallback;
+
 /**
  * @param {string} event
- * @param {function(Object=, Object=): void} callback
+ * @param {function(Object=, Hls.EventCallback=): void} callback
  * @return {undefined}
  */
 Hls.prototype.on = function(event, callback) {};
@@ -450,7 +594,7 @@ Hls.ErrorDetails.INTERNAL_EXCEPTION;
 Hls.ErrorDetails.WEBVTT_EXCEPTION;
 
 
-// TODO: define all variables and functions for the following classes:
+// TODO define all variables and functions for the following classes
 
 /**
  * @constructor

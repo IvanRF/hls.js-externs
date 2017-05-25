@@ -179,7 +179,7 @@ Hls.prototype.subtitleTrack;
 
 /**
  * @typedef {{
- * 	 url: string,
+ *   url: string,
  *   responseType: string,
  *   type: string,
  *   rangeStart: (number|undefined),
@@ -191,7 +191,7 @@ Hls.Context;
 
 /**
  * @typedef {{
- * 	 maxRetry: number,
+ *   maxRetry: number,
  *   timeout: number,
  *   retryDelay: number,
  *   maxRetryDelay: number
@@ -201,10 +201,10 @@ Hls.Config;
 
 /**
  * @typedef {{
- * 	 context: Hls.Context,
+ *   context: Hls.Context,
  *   config: Hls.Config,
  *   callbacks: {onSuccess: function(), onProgress: function(), onError: function(), onTimeout: function()},
- * 	 load: function(Object, Object, Object),
+ *   load: function(Object, Object, Object),
  *   abort: function(),
  *   destroy: function()
  * }}
@@ -213,7 +213,7 @@ Hls.Loader;
 
 /**
  * @typedef {{
- * 	 type: string,
+ *   type: string,
  *   level: number,
  *   loader: Hls.Loader,
  *   autoLevel: boolean,
@@ -251,7 +251,7 @@ Hls.Fragment;
 
 /**
  * @typedef {{
- * 	 trequest: number,
+ *   trequest: number,
  *   tfirst: number,
  *   tload: number,
  *   loaded: number,
@@ -263,7 +263,7 @@ Hls.Stats;
 
 /**
  * @typedef {{
- * 	 code: number,
+ *   code: number,
  *   text: string
  * }}
  */

@@ -1,7 +1,7 @@
 # hls.js-externs
 [hls.js](https://github.com/video-dev/hls.js) externs for use with [Closure Compiler](https://developers.google.com/closure/compiler/).
 
-**Based on [hls.js v0.7.8](https://github.com/video-dev/hls.js/releases/tag/v0.7.8).**
+**Based on [hls.js v0.7.11](https://github.com/video-dev/hls.js/releases/tag/v0.7.11).**
 
 ----------
 ## Example ##

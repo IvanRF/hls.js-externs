@@ -86,7 +86,7 @@ Hls.prototype.swapAudioCodec = function() {};
 Hls.prototype.recoverMediaError = function() {};
 
 /**
- * @type {Array}
+ * @type {Array<Hls.Level>}
  */
 Hls.prototype.levels;
 
@@ -244,10 +244,37 @@ Hls.Loader;
  *   tagList: Array,
  *   levelkey: LevelKey,
  *   baseurl: string,
- *   relurl: string
+ *   relurl: string,
+ *   url: string
  * }}
  */
 Hls.Fragment;
+
+/**
+ * @typedef {{
+ *   url: Array<string>,
+ *   bitrate: (number|undefined),
+ *   name: (string|undefined),
+ *   codecs: (string|undefined),
+ *   width: (number|undefined),
+ *   height: (number|undefined)
+ * }}
+ */
+Hls.Level;
+
+/**
+ * @typedef {{
+ *   version: number,
+ *   type: (string|undefined),
+ *   startSN: number,
+ *   endSN: number,
+ *   totalduration: number,
+ *   targetduration: number,
+ *   fragments: Array<Hls.Fragment>,
+ *   live: boolean
+ * }}
+ */
+Hls.LevelDetails;
 
 /**
  * @typedef {{
@@ -256,7 +283,7 @@ Hls.Fragment;
  *   tload: number,
  *   loaded: number,
  *   bw: (number|undefined),
- *   total: (number|undefined),
+ *   total: (number|undefined)
  * }}
  */
 Hls.Stats;
@@ -294,7 +321,7 @@ Hls.Response;
  *   totalDroppedFrames: (number|undefined),
  *   level: (number|undefined),
  *   droppedLevel: (number|undefined),
- *   levels: (Array|undefined),
+ *   levels: (Array<Hls.Level>|undefined),
  *   firstLevel: (number|undefined),
  *   audio: (boolean|undefined),
  *   video: (boolean|undefined),
